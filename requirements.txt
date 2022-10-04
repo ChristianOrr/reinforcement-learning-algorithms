@@ -1,0 +1,10 @@
+gym==0.26
+jax==0.3
+jupyter==1.0
+AutoROM.accept-rom-license==0.4.2
+dm-acme==0.4
+pandas==1.4
+dm_env==1.5
+numpy==1.22
+scikit-learn==1.1
+matplotlib==3.5
