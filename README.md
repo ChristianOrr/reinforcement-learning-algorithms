@@ -1,5 +1,5 @@
 # Reinforcement Learning Algorithms
-This repository contains a suite of popular classic reinforcement learning algorithms. The algorithms include tabular SARSA, tabular Q-Learning, SARSA with Function Approximation, Q-Learning with Function Approximation, tabular SARSA using Acme and tabular Q-Learning using Acme. All the theory required to understand the algorithms are contained in Richard S. Sutton and Andrew G. Barto's book: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/RLbook2018.pdf). Alternative implementations of the algorithms are provided in the references below. 
+This repository contains a suite of popular classic reinforcement learning algorithms. The algorithms include tabular SARSA, tabular Q-Learning, tabular Double Q-Learning, SARSA with Function Approximation, Q-Learning with Function Approximation, tabular SARSA using Acme and tabular Q-Learning using Acme. All the theory required to understand the algorithms are contained in Richard S. Sutton and Andrew G. Barto's book: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/RLbook2018.pdf). Alternative implementations of the algorithms are provided in the references below. 
 
 
 ## Implementation Details
