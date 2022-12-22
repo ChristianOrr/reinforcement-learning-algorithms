@@ -7,10 +7,11 @@ The algorithms are trained and tested on games provided by Open AI's gym. Traini
 
 
 ## Installation Requirements
-Open AI gym 0.26 or higher, numpy and matplotlib is required for q-learning and sarsa notebooks. In addition Scikit-learn is required for the sarsa and q-learning function approximation notebooks. Acme, Jax and Pandas are required for the sarsa and q-learning Acme notebooks. The play_games notebook has Atari games which requires the rom licence to be installed. You can install all the requirements by running the block below:
+Open AI gymnasium 0.27 or higher, numpy and matplotlib is required for q-learning and sarsa notebooks. In addition Scikit-learn is required for the sarsa and q-learning function approximation notebooks. Acme, Jax and Pandas are required for the sarsa and q-learning Acme notebooks. The play_games notebook has Atari games which requires the rom licence to be installed. You can install all the requirements by running the block below:
 
 ```
-pip install gym[atari,accept-rom-license]==0.26
+pip install gymnasium[atari, toy_text, accept-rom-license]
+pip install moviepy
 pip install matplotlib==3.5
 pip install pandas==1.4
 pip install jupyter==1.0
