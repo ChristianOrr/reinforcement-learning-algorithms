@@ -8,15 +8,61 @@ All the RL algorithms will follow the Markov decision process (MDP) and all of t
 ## Algorithms
 The RL algorithms get progressively more complex and simultaniously more powerful from value function approximation to policy gradient methods, to the most powerful, actor-critic methods.   
 ### Value Function Approximation
-#### Q-Learning
-
+Value function approximation methods mainly focus on finding the optimal value function (usually an action-value function). The policy function will then be defined around the value function. $\epsilon$-Greedy is the most common policy used with these methods. $\epsilon$-Greedy policies will mostly choose the action with highest value (from the value function estimate). Then on the odd occasion it will choose a random action with some small probability, $\epsilon$. This provides a good balance of exploration with exploitation. The observation and action spaces are usually discrete. The algorithms are the easiest to understand and implement.
 #### SARSA
+SARSA is the simplest on-policy temporal difference method. It uses bootstrapping to estimate the return before the episode has completed. The return estimate is then used to update the action-value functions prediction of the return given the state, action pair. 
+
+##### Features:
+- On-Policy:            Yes
+- Observation Space:    Discrete
+- Action Space:         Discrete
+- Value Function:       Tabular
+- Policy Function:      $\epsilon$-Greedy
+- Update Period:        1-step (n-step and TD($\lambda$) versions are also available)
+
+#### Q-Learning
+Q-Learning is the simplest off-policy temporal difference method. There are many different variants of this algorithm from tabular to deep learning. Its very similar to SARSA, but instead bootstraps with the optimal return estimate rather than the return estimate from following the current policy. This results in it becoming an off-policy algorithm. 
+
+##### Features:
+- On-Policy:            No
+- Observation Space:    Discrete
+- Action Space:         Discrete
+- Value Function:       Tabular
+- Policy Function:      $\epsilon$-Greedy
+- Update Period:        1-step (n-step and TD($\lambda$) versions are also available)
 
 #### Double Q-Learning
+Double Q-Learning is a variation of Q-Learning. The primary aim of this algorithm is to reduce the maximization bias problem of Q-Learning and SARSA. Both methods follow greedy policies, which result in them having a bias towards the maximum value. Due to the variation in the value estimates the maximum value can often be larger than the real maximum value. The value estimates will get better as more updates are performed, but the maximization bias can significantly delay learning. Double Q-Learning helps solve this issue by using two action-value functions. The one value function is used to choose the optimal action, while the other is used to estimate the action's value. The roles are then reversed in the next update cycle. This provides an unbiased estimate of the value of an action. Only a single value function is updated per step, so they both experience different updates and will therefore provide different value estimates.  
 
-#### Q-Learning with Function Approximation
+##### Features:
+- On-Policy:            No
+- Observation Space:    Discrete
+- Action Space:         Discrete
+- Value Function:       Tabular
+- Policy Function:      $\epsilon$-Greedy
+- Update Period:        1-step (n-step and TD($\lambda$) versions are also available)
 
 #### SARSA with Function Approximation
+SARSA with Function Approximation improves on the Q-Learning algorithm by providing the ability to work on continuous observation spaces. Continuous observation spaces can contain exponentially more observations than discrete observation spaces (sometimes infinite observations). Making it infeasable or even impossible to store each action observation pair (state) in a table. Linear function approximation solves this problem by converting the state/s into a feature vector. The feature vector is trained to represent the entire state space. This results in a representation of the state space with far lower dimensions.
+
+##### Features:
+- On-Policy:            Yes
+- Observation Space:    Continuous
+- Action Space:         Discrete
+- Value Function:       Linear Function Approximation
+- Policy Function:      $\epsilon$-Greedy
+- Update Period:        1-step (n-step and TD($\lambda$) versions are also available)
+
+#### Q-Learning with Function Approximation
+Q-Learning with Function Approximation improves on the Q-Learning algorithm by providing the ability to work on continuous observation spaces. Uses the same function approximation technique as SARSA with Function Approximation, but applied to Q-Learning.
+
+##### Features:
+- On-Policy:            No
+- Observation Space:    Continuous
+- Action Space:         Discrete
+- Value Function:       Linear Function Approximation
+- Policy Function:      $\epsilon$-Greedy
+- Update Period:        1-step (n-step and TD($\lambda$) versions are also available)
 
 
 ### Policy Gradient Methods
@@ -24,9 +70,9 @@ The RL algorithms get progressively more complex and simultaniously more powerfu
 
 #### REINFORCE with Baseline
 
-#### Synchronous Advantage Actor-Critic (A2C) Monte-Carlo
+#### Synchronous Advantage Actor-Critic (A2C) Monte Carlo
 
-#### Generalized Advantage Estimation (GAE) Monte-Carlo
+#### Generalized Advantage Estimation (GAE) Monte Carlo
 
 
 ### Actor-Critic Methods
