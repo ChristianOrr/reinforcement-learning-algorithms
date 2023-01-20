@@ -6,10 +6,10 @@ This repository contains a suite of reinforcement learning algorithms implemente
 All the RL algorithms will follow the Markov decision process (MDP) and all of them will use environments from OpenAI's Gym (now its called to Gymnasium and maintained by a different organisation). All agents are trained from scratch with either random or zeroed initialization of the model/s parameters. The problems get progressively harder as the RL methods get better, which results in longer training times.
 
 ## Algorithms
-The RL algorithms get progressively more complex and simultaniously more powerful from value function approximation to policy gradient methods, to the most powerful, actor-critic methods. 
+The RL algorithms get progressively more complex and simultaniously more powerful from value function methods to policy gradient methods, to the most powerful, actor-critic methods. 
 
-### Value Function Approximation
-Value function approximation methods mainly focus on finding the optimal value function (usually an action-value function). The policy function will then be defined around the value function. $\epsilon$-Greedy is the most common policy used with these methods. $\epsilon$-Greedy policies will mostly choose the action with highest value (from the value function estimate). Then on the odd occasion it will choose a random action with some small probability, $\epsilon$. This provides a good balance of exploration with exploitation. The observation and action spaces are usually discrete. The algorithms are the easiest to understand and implement.
+### Value Function Methods
+Value function methods mainly focus on finding the optimal value function (usually an action-value function). The policy function will then be defined around the value function. $\epsilon$-Greedy is the most common policy used with these methods. $\epsilon$-Greedy policies will mostly choose the action with highest value (from the value function estimate). Then on the odd occasion it will choose a random action with some small probability, $\epsilon$. This provides a good balance of exploration with exploitation. The observation and action spaces are usually discrete. The algorithms are the easiest to understand and implement.
 
 #### SARSA
 SARSA is the simplest on-policy temporal difference method. It uses bootstrapping to estimate the return before the episode has completed. The return estimate is then used to update the action-value functions prediction of the return given the state, action pair. 
@@ -75,7 +75,7 @@ Q-Learning with Function Approximation improves on the Q-Learning algorithm by p
 Policy gradient methods learn a parameterized policy function that can choose actions without the need of a value function. We will be using neural networks for the parametrized policy function and use gradient descent with the Adam optimizer to update the parameters. A value function can be used in pure policy gradient methods, but it can only be used in the first state of the state transition. Actor-critic methods on the other hand use the value function on a later state for bootstrapping. So actor-critic methods are essentially pure policy gradient methods but with bootstrapping. You will notice that all of the algorithms shown in this section perform Monte Carlo updates, which is due to the lack of bootstrapping. This is the main weakness of pure policy gradient methods and hence why actor-critic methods are generally prefered over them. 
 
 #### REINFORCE
-REINFORCE is the simplest pure policy gradient method. It uses a neural network as the policy function. The policy function is learned directly unlike the value function approximation methods, which don't learn a policy function, their policy is based on the value estimates from the value function. REINFORCE doesn't use a value function. The policy function uses a soft-max function to create a probability distribution for action selection. A major benifit of using a neural network policy with soft-max action selection is that the policy will initially be stochastic, promoting more exploration, and gradually get more deterministic as it is trained. In later methods you will notice an entropy function is used to prevent the policy from becoming too deterministic. 
+REINFORCE is the simplest pure policy gradient method. It uses a neural network as the policy function. The policy function is learned directly unlike the value function methods, which don't learn a policy function, their policy is based on the value estimates from the value function. REINFORCE doesn't use a value function. The policy function uses a soft-max function to create a probability distribution for action selection. A major benifit of using a neural network policy with soft-max action selection is that the policy will initially be stochastic, promoting more exploration, and gradually get more deterministic as it is trained. In later methods you will notice an entropy function is used to prevent the policy from becoming too deterministic. 
 
 ##### Features:
 - On-Policy:                Yes
@@ -99,7 +99,7 @@ REINFORCE with Baseline improves upon the REINFORCE algorithm by reducing varian
 - Parallel Environments:    No
 
 #### Synchronous Advantage Actor-Critic (A2C) Monte Carlo
-This is a Monte Carlo variant of A2C. The original A2C algorithm is an actor-critic, because it uses bootstrapping to estimate the expected return. Estimating the returns is not needed with this method because the updates are only performed after the episode has completed. Other than this alteration the algorithm functions the same as the original. A2C's main feature is to synchronously run multiple environments in parallel. The parallel environments will go through different state transitions. The gradient update of the value and policy functions are calculated from the average experience from the parallel agents. If the policy parameters are poor, a single agent may achieve high return during an episode, but the average return from multiple agents in distinct environments with the same poor parameters will be much closer to the real performance of the policy. This reduces variance during training and allows the agent to improve faster. A2C also uses and advantage function instead of the return for the policy parameter update like REINFORCE with baseline. 
+This is a Monte Carlo variant of A2C. The original A2C algorithm is an actor-critic, because it uses bootstrapping to estimate the expected return. Estimating the returns is not needed with the Monte Carlo implementation because the updates are performed after the episode has completed. Other than this alteration the algorithm functions the same as the original. A2C's main feature is to synchronously run multiple environments in parallel. The parallel environments will go through different state transitions. The gradient update of the value and policy functions are calculated from the average experience from the parallel agents. If the policy parameters are poor, a single agent may achieve high return during an episode, but the average return from multiple agents in distinct environments with the same poor parameters will be much closer to the real performance of the policy. This reduces variance during training and allows the agent to improve faster. A2C also uses and advantage function instead of the return for the policy parameter update like REINFORCE with baseline. 
 
 ##### Features:
 - On-Policy:                Yes
@@ -112,12 +112,35 @@ This is a Monte Carlo variant of A2C. The original A2C algorithm is an actor-cri
 
 
 ### Actor-Critic Methods
+Actor-critic methods use both a policy function (the actor) and a value function (the critic). The difference between actor-critic methods and pure policy gradient methods with both a value and policy function (like REINFORCE with baseline) is that the value function is used to criticise the policy functions actions. in technical terms the value function is used on later states in the state transition. This is mainly performed to bootstrap the expected return. The bootstrapped return will provide a more accurate value estimate then the value estimate in the current state, therefore it can be used to criticise the action/s taken by the policy function. The criticising is performed in the form of the advantage estimate, which tells us how much advantage was gained or lost by performing those actions. 
+
 #### Actor-Critic
+This is the simplest actor-critic algorithm. Actor-critic slightly adjusts the REINFORCE with baseline by using the value function to calculate the bootstrapped the return value, which is then used to calculate the temporal difference (TD) error, $\delta$. This enables parameter updates every step. The TD error is a simple advantage estimate, used to criticise the action taken by the policy in the first step.
+
+##### Features:
+- On-Policy:                Yes
+- Observation Space:        Continuous
+- Action Space:             Discrete
+- Value Function:           Deep Neural Network
+- Policy Function:          Deep Neural Network
+- Update Period:            1-step
+- Parallel Environments:    No
+
 
 #### Synchronous Advantage Actor-Critic (A2C)
+A2C is an actor-critic algorithm that synchronously runs multiple environments in parallel. All the agents run the same policy, but the environment's will be slightly different, resulting in different experiences for all the agents. The returns from the experiences are then aggregated in the advantage function, which is then used to update the policy and value function parameters. The policy and value functions are then updated after n-steps, where n is preferably greater than 1 but less than the average episode length. Some of the agents may complete before n-steps. In this case they will automatically start a new episode. The return calculation will start from scratch, so the previous episodes rewards won't influence the new episodes return. The algorithm will even work for values of n far greater than the episode length, although this won't be optimal. 
+
+##### Features:
+- On-Policy:                Yes
+- Observation Space:        Continuous
+- Action Space:             Discrete
+- Value Function:           Deep Neural Network
+- Policy Function:          Deep Neural Network
+- Update Period:            n-steps
+- Parallel Environments:    Yes
 
 #### Generalized Advantage Estimation (GAE) Monte Carlo
-This is the Monte Carlo version of GAE. 
+This is the Monte Carlo version of GAE. GAE proposes a better advantage estimation function, the generalized advantage estimation function. The GAE function improves on A2C advantage estimate by lowering the bias at the cost of a minor variance increase. Although this algorithm performs Monte Carlo updates, it still uses bootstrapping in the GAE function, so it is an actor-critic method. This implementation will use A2C's technique of running multiple environments in parallel, but replace the advantage estimation function with the GAE function. 
 
 ##### Features:
 - On-Policy:                Yes
@@ -129,10 +152,28 @@ This is the Monte Carlo version of GAE.
 - Parallel Environments:    Yes
 
 #### Generalized Advantage Estimation (GAE) 
+This implemenation of GAE only differs from the Monte Carlo implementation in when the parameter updates are performed. The parameters are now updated every n-steps like the vanilla A2C. See the A2C and GAE Monte Carlo algorithm descriptions for a better understanding of this implementation.   
+
+##### Features:
+- On-Policy:                Yes
+- Observation Space:        Continuous
+- Action Space:             Discrete
+- Value Function:           Deep Neural Network
+- Policy Function:          Deep Neural Network
+- Update Period:            n-steps
+- Parallel Environments:    Yes
 
 #### Proximal Policy Optimization (PPO)
+This is the clipped surrogate objective version of PPO. The aim of PPO is to mimic the behaviour of TRPO, but only use first-order derivatives in the policy optimization, resulting in a simpler algorithm. PPO and TRPO differ from other policy gradient algorithms with their approach to policy parameter updates. They both restrict the objective function (loss function) when the objective improves too much in a single step. This has the desired effect of preventing the policy updates from getting so large that the policy function can become worse. This implementation utilises the synchronous parallel environments technique from A2C and the generalized advantage estimator function as the advantage estimator from GAE. 
 
-
+##### Features:
+- On-Policy:                Yes
+- Observation Space:        Continuous
+- Action Space:             Discrete
+- Value Function:           Deep Neural Network
+- Policy Function:          Deep Neural Network
+- Update Period:            n-steps
+- Parallel Environments:    Yes
 
 ## Installation Requirements
 If you have a GPU you can install Jax by running the following first:
@@ -154,9 +195,9 @@ pip install dm-acme[jax, envs]==0.4
 
 ## References
 - [1] [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/RLbook2018.pdf)
-- [2] [OpenAI, Spinning Up](https://spinningup.openai.com/en/latest/index.html)
-- [3] [Q-Learning Example by Denny Britz](https://github.com/dennybritz/reinforcement-learning/blob/master/TD/Q-Learning%20Solution.ipynb)
-- [4] [Solving Taxi by Justin Francis](https://github.com/wagonhelm/Reinforcement-Learning-Introduction/blob/master/Solving%20Taxi.ipynb)
-- [5] [SARSA Example by Denny Britz](https://github.com/dennybritz/reinforcement-learning/blob/master/TD/SARSA%20Solution.ipynb)
-- [6] [Q-Learning Value Function Approximation Example by Denny Britz](https://github.com/dennybritz/reinforcement-learning/blob/master/FA/Q-Learning%20with%20Value%20Function%20Approximation%20Solution.ipynb)
-- [7] [Intro to DeepMind’s Reinforcement Learning Framework “Acme”](https://towardsdatascience.com/deepminds-reinforcement-learning-framework-acme-87934fa223bf)
+- [2] [Spinning Up, OpenAI](https://spinningup.openai.com/en/latest/index.html)
+- [3] [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783)
+- [4] [High-Dimensional Continuous Control Using Generalized Advantage Estimation](https://arxiv.org/abs/1506.02438)
+- [5] [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347)
+- [6] [Intro to DeepMind’s Reinforcement Learning Framework “Acme”](https://towardsdatascience.com/deepminds-reinforcement-learning-framework-acme-87934fa223bf)
+- [7] [Stable-Baselines3](https://stable-baselines3.readthedocs.io/en/master/)
