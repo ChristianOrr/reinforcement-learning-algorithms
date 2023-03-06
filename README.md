@@ -1,5 +1,5 @@
 # Reinforcement Learning Algorithms
-This repository contains a suite of reinforcement learning algorithms implemented from scratch. The algorithms include a wide variety of algorithms ranging from tabular to deep reinforcement learning. The foundational knowledge required to understand the algorithms are provided in Richard S. Sutton and Andrew G. Barto's book [1] and OpenAI's Spinning Up blog [2].
+This repository contains a suite of reinforcement learning algorithms implemented from scratch. The algorithms include a wide variety of algorithms ranging from tabular to deep reinforcement learning. The algorithm implementations are designed to contain only the fundamental parts of the algorithms needed to make them functional. This ensures that the code is simple short and easy to understand. This is a valuable resource for anyone looking to understand how to apply RL algorithms without having to go through many layers of abstraction. The foundational knowledge required to understand the algorithms are provided in Richard S. Sutton and Andrew G. Barto's book [1] and OpenAI's Spinning Up blog [2].
 
 
 ## Implementation Details
