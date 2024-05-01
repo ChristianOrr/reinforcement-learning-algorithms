@@ -1,9 +1,10 @@
-gymnasium[atari, toy_text, accept-rom-license, box2d]
-moviepy
-jax
+gymnasium[atari, toy_text, accept-rom-license, box2d]==0.29.1
+moviepy==1.0.3
+jax==0.4.26
+flax==0.8.3
 jupyter==1.0
 dm-acme[jax, envs]==0.4
-pandas==1.4
-numpy==1.22
-scikit-learn==1.1
-matplotlib==3.5
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+matplotlib==3.8.4

@@ -250,4 +250,11 @@ def _flatten_obs(obs: Union[List[VecEnvObs], Tuple[VecEnvObs]], space: spaces.Sp
         obs_len = len(space.spaces)
         return tuple(np.stack([o[i] for o in obs]) for i in range(obs_len))
     else:
-        return np.stack(obs)
+        # quick fix to prevent inhomogeneous arrays when performing np.stack
+        is_homogeneous = np.array([isinstance(ob, np.ndarray) for ob in obs])
+        if is_homogeneous.all():
+            obs = np.stack(obs)
+        else:
+            obs = [ob[0] for ob in obs]
+            obs = np.stack(obs)
+        return obs

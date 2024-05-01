@@ -178,17 +178,18 @@ This is the clipped surrogate objective version of PPO. The aim of PPO is to mim
 ## Installation Requirements
 If you have a GPU you can install Jax by running the following first:
 ```
-pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip install -U "jax[cuda12_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 ```
 All the requirements are provided below:
 ```
-pip install gymnasium[atari, toy_text, accept-rom-license, box2d]
-pip install moviepy
-pip install matplotlib==3.5
-pip install pandas==1.4
+pip install "gymnasium[atari, toy_text, accept-rom-license, box2d]"==0.29.1
+pip install moviepy==1.0.3
+pip install matplotlib==3.8.4
+pip install pandas==2.2.2
 pip install jupyter==1.0
-pip install scikit-learn==1.1
+pip install scikit-learn==1.4.2
 pip install dm-acme[jax, envs]==0.4
+pip install flax==0.8.3
 ```
 
 
