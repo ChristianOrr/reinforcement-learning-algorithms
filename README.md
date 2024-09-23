@@ -18,15 +18,11 @@ SARSA is the simplest on-policy temporal difference method. It uses bootstrappin
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/sarsa/Taxi-v3-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/sarsa/Taxi-v3-episode-0.mp4" title="Before"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/sarsa/Taxi-v3-episode-400.mp4" type="video/mp4">
-</video>
+<video controls src="videos/sarsa/Taxi-v3-episode-400.mp4" title="After"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -44,15 +40,11 @@ Q-Learning is the simplest off-policy temporal difference method. There are many
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/q_learning/Taxi-v3-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/q_learning/Taxi-v3-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/q_learning/Taxi-v3-episode-400.mp4" type="video/mp4">
-</video>
+<video controls src="videos/q_learning/Taxi-v3-episode-400.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                No
@@ -70,15 +62,11 @@ Double Q-Learning is a variation of Q-Learning. The primary aim of this algorith
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/double_q_learning/Taxi-v3-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/double_q_learning/Taxi-v3-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/double_q_learning/Taxi-v3-episode-400.mp4" type="video/mp4">
-</video>
+<video controls src="videos/double_q_learning/Taxi-v3-episode-400.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                No
@@ -96,15 +84,11 @@ SARSA with Function Approximation improves on the Q-Learning algorithm by provid
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/sarsa_fa/MountainCar-v0-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/sarsa_fa/MountainCar-v0-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/sarsa_fa/MountainCar-v0-episode-40.mp4" type="video/mp4">
-</video>
+<video controls src="videos/sarsa_fa/MountainCar-v0-episode-40.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -122,15 +106,11 @@ Q-Learning with Function Approximation improves on the Q-Learning algorithm by p
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/q_learning_fa/MountainCar-v0-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/q_learning_fa/MountainCar-v0-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/q_learning_fa/MountainCar-v0-episode-40.mp4" type="video/mp4">
-</video>
+<video controls src="videos/q_learning_fa/MountainCar-v0-episode-40.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                No
@@ -151,15 +131,11 @@ REINFORCE is the simplest pure policy gradient method. It uses a neural network 
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/reinforce/CartPole-v1-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/reinforce/CartPole-v1-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/reinforce/CartPole-v1-episode-50.mp4" type="video/mp4">
-</video>
+<video controls src="videos/reinforce/CartPole-v1-episode-50.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -177,15 +153,11 @@ REINFORCE with Baseline improves upon the REINFORCE algorithm by reducing varian
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/reinforce_baseline/CartPole-v1-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/reinforce_baseline/CartPole-v1-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/reinforce_baseline/CartPole-v1-episode-50.mp4" type="video/mp4">
-</video>
+<video controls src="videos/reinforce_baseline/CartPole-v1-episode-50.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -203,15 +175,11 @@ This is a Monte Carlo variant of A2C. The original A2C algorithm is an actor-cri
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/a2c_discrete_monte-carlo/CartPole-v1-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/a2c_discrete_monte-carlo/CartPole-v1-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/a2c_discrete_monte-carlo/CartPole-v1-episode-5.mp4" type="video/mp4">
-</video>
+<video controls src="videos/a2c_discrete_monte-carlo/CartPole-v1-episode-5.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -233,15 +201,11 @@ This is the simplest actor-critic algorithm. Actor-critic slightly adjusts the R
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/actor-critic/CartPole-v1-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/actor-critic/CartPole-v1-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/actor-critic/CartPole-v1-episode-50.mp4" type="video/mp4">
-</video>
+<video controls src="videos/actor-critic/CartPole-v1-episode-50.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -260,15 +224,11 @@ A2C is an actor-critic algorithm that synchronously runs multiple environments i
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/a2c_discrete/LunarLander-v2-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/a2c_discrete/LunarLander-v2-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/a2c_discrete/LunarLander-v2-episode-5.mp4" type="video/mp4">
-</video>
+<video controls src="videos/a2c_discrete/LunarLander-v2-episode-5.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -286,15 +246,11 @@ This is the Monte Carlo version of GAE. GAE proposes a better advantage estimati
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/gae_discrete_monte-carlo/CartPole-v1-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/gae_discrete_monte-carlo/CartPole-v1-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/gae_discrete_monte-carlo/CartPole-v1-episode-5.mp4" type="video/mp4">
-</video>
+<video controls src="videos/gae_discrete_monte-carlo/CartPole-v1-episode-5.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -312,15 +268,11 @@ This implemenation of GAE only differs from the Monte Carlo implementation in wh
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/gae_discrete/LunarLander-v2-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/gae_discrete/LunarLander-v2-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/gae_discrete/LunarLander-v2-episode-5.mp4" type="video/mp4">
-</video>
+<video controls src="videos/gae_discrete/LunarLander-v2-episode-5.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
@@ -338,15 +290,11 @@ This is the clipped surrogate objective version of PPO. The aim of PPO is to mim
 
 **Before Training:**
 
-<video controls>
-<source src="./videos/ppo_discrete/LunarLander-v2-episode-0.mp4" type="video/mp4">
-</video>
+<video controls src="videos/ppo_discrete/LunarLander-v2-episode-0.mp4" title="Title"></video>
 
 **After Training:**
 
-<video controls>
-<source src="./videos/ppo_discrete/LunarLander-v2-episode-5.mp4" type="video/mp4">
-</video>
+<video controls src="videos/ppo_discrete/LunarLander-v2-episode-5.mp4" title="Title"></video>
 
 ##### Features:
 - On-Policy:                Yes
