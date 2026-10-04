@@ -1,0 +1,31 @@
+[project]
+name = "reinforcement-learning-algorithms"
+version = "0.1.0"
+description = "A suite of reinforcement learning algorithms implemented from scratch."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.13"
+dependencies = [
+    "gymnasium[atari,box2d,toy-text]>=1.3.0",
+    "ale-py>=0.12.1",
+    "moviepy>=2.2.1",
+    "jax>=0.11.2",
+    "flax>=0.12.10",
+    "optax>=0.2.8",
+    "numpy>=2.5.3",
+    "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
+    "matplotlib>=3.11.2",
+    "jupyter>=1.1.1",
+]
+
+[project.optional-dependencies]
+cuda = ["jax[cuda13]>=0.11.2"]
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "vec_env"
+module-root = ""

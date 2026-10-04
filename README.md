@@ -20,11 +20,11 @@ SARSA is the simplest on-policy temporal difference method. It uses bootstrappin
 
 **Before Training:**
 
-![alt text](videos/sarsa/Taxi-v3-episode-0.gif)
+![alt text](videos/sarsa/Taxi-v4-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/sarsa/Taxi-v3-episode-400.gif)
+![alt text](videos/sarsa/Taxi-v4-episode-400.gif)
 
 ##### Features:
 - On-Policy:                Yes
@@ -45,11 +45,11 @@ Q-Learning is the simplest off-policy temporal difference method. There are many
 
 **Before Training:**
 
-![alt text](videos/q_learning/Taxi-v3-episode-0.gif)
+![alt text](videos/q_learning/Taxi-v4-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/q_learning/Taxi-v3-episode-400.gif)
+![alt text](videos/q_learning/Taxi-v4-episode-400.gif)
 
 ##### Features:
 - On-Policy:                No
@@ -70,11 +70,11 @@ Double Q-Learning is a variation of Q-Learning. The primary aim of this algorith
 
 **Before Training:**
 
-![alt text](videos/double_q_learning/Taxi-v3-episode-0.gif)
+![alt text](videos/double_q_learning/Taxi-v4-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/double_q_learning/Taxi-v3-episode-400.gif)
+![alt text](videos/double_q_learning/Taxi-v4-episode-400.gif)
 
 ##### Features:
 - On-Policy:                No
@@ -251,11 +251,11 @@ A2C is an actor-critic algorithm that synchronously runs multiple environments i
 
 **Before Training:**
 
-![alt text](videos/a2c_discrete/LunarLander-v2-episode-0.gif)
+![alt text](videos/a2c_discrete/Acrobot-v1-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/a2c_discrete/LunarLander-v2-episode-5.gif)
+![alt text](videos/a2c_discrete/Acrobot-v1-episode-5.gif)
 
 ##### Features:
 - On-Policy:                Yes
@@ -301,11 +301,11 @@ This implemenation of GAE only differs from the Monte Carlo implementation in wh
 
 **Before Training:**
 
-![alt text](videos/gae_discrete/LunarLander-v2-episode-0.gif)
+![alt text](videos/gae_discrete/Acrobot-v1-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/gae_discrete/LunarLander-v2-episode-5.gif)
+![alt text](videos/gae_discrete/Acrobot-v1-episode-5.gif)
 
 ##### Features:
 - On-Policy:                Yes
@@ -326,11 +326,11 @@ This is the clipped surrogate objective version of PPO. The aim of PPO is to mim
 
 **Before Training:**
 
-![alt text](videos/ppo_discrete/LunarLander-v2-episode-0.gif)
+![alt text](videos/ppo_discrete/Acrobot-v1-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/ppo_discrete/LunarLander-v2-episode-5.gif)
+![alt text](videos/ppo_discrete/Acrobot-v1-episode-5.gif)
 
 ##### Features:
 - On-Policy:                Yes
@@ -343,20 +343,17 @@ This is the clipped surrogate objective version of PPO. The aim of PPO is to mim
 </details>
 
 ## Installation Requirements
-If you have a GPU you can install Jax by running the following first:
+The project is managed with [uv](https://docs.astral.sh/uv/) and requires Python 3.13. Install the dependencies by running:
 ```
-pip install -U "jax[cuda12_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+uv sync
 ```
-All the requirements are provided below:
+If you have an NVIDIA GPU, install Jax with CUDA support instead:
 ```
-pip install "gymnasium[atari, toy_text, accept-rom-license, box2d]"==0.29.1
-pip install moviepy==1.0.3
-pip install matplotlib==3.8.4
-pip install pandas==2.2.2
-pip install jupyter==1.0
-pip install scikit-learn==1.4.2
-pip install dm-acme[jax, envs]==0.4
-pip install flax==0.8.3
+uv sync --extra cuda
+```
+Then start Jupyter and open the notebooks in the `notebooks` directory:
+```
+uv run jupyter lab
 ```
 
 
