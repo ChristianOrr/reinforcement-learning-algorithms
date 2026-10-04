@@ -20,11 +20,11 @@ SARSA is the simplest on-policy temporal difference method. It uses bootstrappin
 
 **Before Training:**
 
-![alt text](videos/sarsa/Taxi-v3-episode-0.gif)
+![alt text](videos/sarsa/Taxi-v4-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/sarsa/Taxi-v3-episode-400.gif)
+![alt text](videos/sarsa/Taxi-v4-episode-400.gif)
 
 ##### Features:
 - On-Policy:                Yes
@@ -45,11 +45,11 @@ Q-Learning is the simplest off-policy temporal difference method. There are many
 
 **Before Training:**
 
-![alt text](videos/q_learning/Taxi-v3-episode-0.gif)
+![alt text](videos/q_learning/Taxi-v4-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/q_learning/Taxi-v3-episode-400.gif)
+![alt text](videos/q_learning/Taxi-v4-episode-400.gif)
 
 ##### Features:
 - On-Policy:                No
@@ -70,11 +70,11 @@ Double Q-Learning is a variation of Q-Learning. The primary aim of this algorith
 
 **Before Training:**
 
-![alt text](videos/double_q_learning/Taxi-v3-episode-0.gif)
+![alt text](videos/double_q_learning/Taxi-v4-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/double_q_learning/Taxi-v3-episode-400.gif)
+![alt text](videos/double_q_learning/Taxi-v4-episode-400.gif)
 
 ##### Features:
 - On-Policy:                No
@@ -251,11 +251,11 @@ A2C is an actor-critic algorithm that synchronously runs multiple environments i
 
 **Before Training:**
 
-![alt text](videos/a2c_discrete/LunarLander-v2-episode-0.gif)
+![alt text](videos/a2c_discrete/Acrobot-v1-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/a2c_discrete/LunarLander-v2-episode-5.gif)
+![alt text](videos/a2c_discrete/Acrobot-v1-episode-5.gif)
 
 ##### Features:
 - On-Policy:                Yes
@@ -301,11 +301,11 @@ This implemenation of GAE only differs from the Monte Carlo implementation in wh
 
 **Before Training:**
 
-![alt text](videos/gae_discrete/LunarLander-v2-episode-0.gif)
+![alt text](videos/gae_discrete/Acrobot-v1-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/gae_discrete/LunarLander-v2-episode-5.gif)
+![alt text](videos/gae_discrete/Acrobot-v1-episode-5.gif)
 
 ##### Features:
 - On-Policy:                Yes
@@ -326,11 +326,11 @@ This is the clipped surrogate objective version of PPO. The aim of PPO is to mim
 
 **Before Training:**
 
-![alt text](videos/ppo_discrete/LunarLander-v2-episode-0.gif)
+![alt text](videos/ppo_discrete/Acrobot-v1-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/ppo_discrete/LunarLander-v2-episode-5.gif)
+![alt text](videos/ppo_discrete/Acrobot-v1-episode-5.gif)
 
 ##### Features:
 - On-Policy:                Yes
