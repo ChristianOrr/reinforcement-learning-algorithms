@@ -301,11 +301,11 @@ This implemenation of GAE only differs from the Monte Carlo implementation in wh
 
 **Before Training:**
 
-![alt text](videos/gae_discrete/Acrobot-v1-episode-0.gif)
+![alt text](videos/gae_discrete/LunarLander-v3-episode-0.gif)
 
 **After Training:**
 
-![alt text](videos/gae_discrete/Acrobot-v1-episode-5.gif)
+![alt text](videos/gae_discrete/LunarLander-v3-episode-5.gif)
 
 ##### Features:
 - On-Policy:                Yes
